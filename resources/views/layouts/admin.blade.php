@@ -7,11 +7,16 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="csrf-token" value="{{ csrf_token() }}" />
     <title>{{ env('APP_NAME') }}</title>
+    <link rel="stylesheet" href="{{ asset('coreui/vendors/simplebar/css/simplebar.css') }}">
+    <link rel="stylesheet" href="{{ asset('coreui/css/vendors/simplebar.css') }}">
+    <link rel="stylesheet" href="{{ asset('coreui/css/style.min.css') }}">
 </head>
 
 <body>
     <div id="app"></div>
-    @vite(['resources/scss/admin.scss', 'resources/js/admin/admin.ts'])
+    <script src="{{ asset('coreui/vendors/@coreui/coreui/js/coreui.bundle.min.js') }}"></script>
+    <script src="{{ asset('coreui/vendors/simplebar/js/simplebar.min.js') }}"></script>
+    @vite('resources/js/admin/admin.ts')
 </body>
 
 </html>

@@ -10,7 +10,7 @@ export default defineConfig({
     },
     plugins: [
         laravel({
-            input: ["resources/js/admin/admin.ts", "resources/scss/admin.scss"],
+            input: ["resources/css/app.css", "resources/js/admin/admin.ts"],
             refresh: true,
         }),
         vue({
