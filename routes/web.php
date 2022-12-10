@@ -14,5 +14,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    // return view('welcome');
+    echo "Hello";
 });
+
+Route::get('/admin/{vue_capture?}', function () {
+    return view('layouts.admin');
+})->where('vue_capture', '[\/\w\.-]*');
