@@ -1,15 +1,16 @@
 import { defineConfig } from "vite";
 import laravel from "laravel-vite-plugin";
 import vue from "@vitejs/plugin-vue";
+import vueI18n from "@intlify/vite-plugin-vue-i18n";
+import path from "path";
 
 export default defineConfig({
+    alias: {
+        "vue-i18n": "vue-i18n/dist/vue-i18n.runtime.esm-bundler.js",
+    },
     plugins: [
         laravel({
-            input: [
-                "resources/css/app.css",
-                "resources/js/admin.ts",
-                "resources/scss/admin.scss",
-            ],
+            input: ["resources/js/admin/admin.ts", "resources/scss/admin.scss"],
             refresh: true,
         }),
         vue({
@@ -19,6 +20,9 @@ export default defineConfig({
                     includeAbsolute: false,
                 },
             },
+        }),
+        vueI18n({
+            include: path.resolve(__dirname, "./resources/js/admin/locales/**"),
         }),
     ],
 });
