@@ -1,4 +1,4 @@
-import './bootstrap';
+import './admin.bootstrap';
 import { createApp } from 'vue';
 import Admin from './Admin.vue';
 

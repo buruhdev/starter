@@ -8,6 +8,6 @@
 </head>
 <body>
     <div id="app"></div>
-    @vite(['resources/js/admin.ts'])
+    @vite(['resources/scss/admin.scss', 'resources/js/admin.ts'])
 </body>
 </html>
