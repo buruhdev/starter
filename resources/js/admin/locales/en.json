@@ -1,0 +1,10 @@
+{
+    "message": "Hello World!",
+    "logout": "Logout",
+    "account": "Account",
+    "dashboard": "Dashboard",
+    "users": "Users",
+    "profile": "Profile",
+    "home": "Home",
+    "admin": "Admin"
+}
