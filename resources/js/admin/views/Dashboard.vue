@@ -9,6 +9,9 @@ import { defineComponent } from 'vue';
 
 export default defineComponent({
     name: "Dashboard",
+    mounted() {
+        this.$emit('pageChanged', "dashboard");
+    }
 })
 </script>
 

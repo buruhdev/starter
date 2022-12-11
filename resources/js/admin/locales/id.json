@@ -4,5 +4,7 @@
     "account": "Akun",
     "dashboard": "Dashboard",
     "users": "Pengguna",
-    "profile": "Profil"
+    "profile": "Profil",
+    "home": "Rumah",
+    "admin": "Admin"
 }

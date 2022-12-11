@@ -4,5 +4,7 @@
     "account": "Account",
     "dashboard": "Dashboard",
     "users": "Users",
-    "profile": "Profile"
+    "profile": "Profile",
+    "home": "Home",
+    "admin": "Admin"
 }

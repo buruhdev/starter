@@ -55,12 +55,12 @@
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb my-0 ms-2">
                     <li class="breadcrumb-item">
-                        <a href="javascript:void(0);">Home</a>
+                        <a href="javascript:void(0);">{{ $t("home") }}</a>
                     </li>
                     <li class="breadcrumb-item" :class="item.isActive ? 'active' : ''"
                         v-for="(item, index) in breadcumpItems" :key="index">
-                        <span v-if="item.isActive">{{ item.name }}</span>
-                        <a href="javascript:void(0);" v-else>{{ item.name }}</a>
+                        <span v-if="item.isActive">{{ $t(item.name) }}</span>
+                        <a href="javascript:void(0);" v-else>{{ $t(item.name) }}</a>
                     </li>
                 </ol>
             </nav>
