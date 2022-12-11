@@ -10,7 +10,7 @@ class ProfileController extends Controller
     public function index(Request $request)
     {
         return response()->json([
-            "user" => $request->user()
+            "profile" => $request->user()
         ]);
     }
 }

@@ -5,26 +5,22 @@
 </template>
 
 <script lang="ts">
-import axios from 'axios';
 import { defineComponent } from 'vue';
+import useProfileStore from '../stores/profile';
 
 export default defineComponent({
     name: "Profile",
-    data() {
-        return {}
+    setup() {
+        const store = useProfileStore();
+
+        return { store }
     },
     mounted() {
         this.$emit('pageChanged', "profile");
-        this.getData();
+        this.store.fetchProfile();
     },
     methods: {
-        async getData() {
-            await axios.get('/api/v1/profile', { headers: { "Authorization": `Bearer ${localStorage.getItem('access_token')}` } }).then(response => {
-                console.log(response);
-            }).catch(error => {
-                console.log(error);
-            });
-        }
+        //
     }
 })
 </script>
