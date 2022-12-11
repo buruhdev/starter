@@ -17,7 +17,12 @@
                                                 </use>
                                             </svg>
                                         </span>
-                                        <input class="form-control" type="text" :placeholder="$t('email')">
+                                        <input class="form-control" type="text" :placeholder="$t('email')"
+                                            v-model="loginForm.email"
+                                            :class="loginForm.errors.has('email') ? 'is-invalid' : ''">
+                                        <small role="alert" class="invalid-feedback"
+                                            v-if="loginForm.errors.has('email')">{{ loginForm.errors.get('email')
+                                            }}</small>
                                     </div>
                                     <div class="input-group mb-4"><span class="input-group-text">
                                             <svg class="icon">
@@ -25,7 +30,12 @@
                                                     xlink:href="/coreui/vendors/@coreui/icons/svg/free.svg#cil-lock-locked">
                                                 </use>
                                             </svg></span>
-                                        <input class="form-control" type="password" :placeholder="$t('password')">
+                                        <input class="form-control" type="password" :placeholder="$t('password')"
+                                            v-model="loginForm.password"
+                                            :class="loginForm.errors.has('password') ? 'is-invalid' : ''">
+                                        <small role="alert" class="invalid-feedback"
+                                            v-if="loginForm.errors.has('password')">{{ loginForm.errors.get('password')
+                                            }}</small>
                                     </div>
                                     <div class="row">
                                         <div class="col-6">
@@ -65,17 +75,24 @@ import Form from 'vform';
 
 export default defineComponent({
     name: "Login",
-    data(): object {
+    data() {
         return {
             loginForm: new Form({
                 email: '' as string,
                 password: '' as string
-            })
+            }) as Form
         }
     },
     methods: {
-        authenticate() {
-            //
+        async authenticate(): Promise<void> {
+            await this.loginForm.post('/api/v1/auth/login').then(response => {
+                localStorage.setItem('access_token', response.data.access_token);
+                localStorage.setItem('refresh_token', response.data.refresh_token);
+                localStorage.setItem('token_expires', response.data.expires_in);
+                window.location.replace('/admin/dashboard');
+            }).catch(error => {
+                //
+            });
         }
     }
 });

@@ -35,11 +35,11 @@
                         <div class="dropdown-header bg-light py-2">
                             <div class="fw-semibold">{{ $t("account") }}</div>
                         </div>
-                        <a class="dropdown-item" href="#">
+                        <router-link class="dropdown-item" to="/admin/profile">
                             <svg class="icon me-2">
                                 <use xlink:href="/coreui/vendors/@coreui/icons/svg/free.svg#cil-user"></use>
-                            </svg>{{ $t("profile") }}</a>
-                        <a class="dropdown-item" href="#">
+                            </svg>{{ $t("profile") }}</router-link>
+                        <a class="dropdown-item" href="javascript:void(0);" @click="logout">
                             <svg class="icon me-2">
                                 <use xlink:href="/coreui/vendors/@coreui/icons/svg/free.svg#cil-account-logout"></use>
                             </svg> {{ $t("logout") }}
@@ -70,6 +70,7 @@
 </template>
 
 <script lang="ts">
+import axios from 'axios';
 import { defineComponent, PropType } from 'vue'
 import { Breadcump } from '../types/Breadcump';
 
@@ -80,7 +81,21 @@ export default defineComponent({
             type: Array as PropType<Breadcump[]>
         }
     },
-
+    methods: {
+        async logout() {
+            await axios.get('/api/v1/auth/logout', { headers: { "Authorization": `Bearer ${localStorage.getItem('access_token')}` } }).then(() => {
+                localStorage.removeItem('access_token');
+                localStorage.removeItem('refresh_token');
+                localStorage.removeItem('token_expires');
+                window.location.replace('/auth/login');
+            }).catch(() => {
+                localStorage.removeItem('access_token');
+                localStorage.removeItem('refresh_token');
+                localStorage.removeItem('token_expires');
+                window.location.replace('/auth/login');
+            })
+        }
+    }
 })
 </script>
 
