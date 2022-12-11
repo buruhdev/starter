@@ -1,3 +1,8 @@
 {
-    "message": "Hello World!"
+    "message": "Hello World!",
+    "logout": "Logout",
+    "account": "Account",
+    "dashboard": "Dashboard",
+    "users": "Users",
+    "profile": "Profile"
 }

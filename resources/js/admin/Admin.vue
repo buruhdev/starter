@@ -8,7 +8,7 @@
 
         <div class="body flex-grow-1 px-3">
             <div class="container-lg">
-
+                <router-view></router-view>
             </div>
         </div>
 
@@ -23,15 +23,12 @@ import SideMenuVue from './components/SideMenu.vue';
 import TopMenuVue from './components/TopMenu.vue';
 import BottomVue from './components/Bottom.vue';
 import { Breadcump } from './types/Breadcump';
+import { RouterView } from 'vue-router';
 
 export default defineComponent({
-    name: "Admin",
     components: { SideMenuVue, TopMenuVue, BottomVue },
     setup() {
-        const breadcumbItems = ref<Breadcump[]>([
-            { name: "Foo" },
-            { name: "Bar" }
-        ]);
+        const breadcumbItems = ref<Breadcump[]>([]);
 
         return { breadcumbItems }
     }

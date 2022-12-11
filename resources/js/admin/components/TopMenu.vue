@@ -13,11 +13,7 @@
                     <use xlink:href="assets/brand/coreui.svg#full"></use>
                 </svg>
             </a>
-            <ul class="header-nav d-none d-md-flex">
-                <li class="nav-item"><a class="nav-link" href="#">Dashboard</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">Users</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">Settings</a></li>
-            </ul>
+
             <ul class="header-nav ms-auto">
                 <li class="nav-item">
                     <a class="nav-link" href="#">
@@ -37,16 +33,16 @@
                     </a>
                     <div class="dropdown-menu dropdown-menu-end pt-0">
                         <div class="dropdown-header bg-light py-2">
-                            <div class="fw-semibold">Account</div>
+                            <div class="fw-semibold">{{ $t("account") }}</div>
                         </div>
                         <a class="dropdown-item" href="#">
                             <svg class="icon me-2">
-                                <use xlink:href="/coreui/vendors/@coreui/icons/svg/free.svg#cil-lock-locked"></use>
-                            </svg> Lock Account</a>
+                                <use xlink:href="/coreui/vendors/@coreui/icons/svg/free.svg#cil-user"></use>
+                            </svg>{{ $t("profile") }}</a>
                         <a class="dropdown-item" href="#">
                             <svg class="icon me-2">
                                 <use xlink:href="/coreui/vendors/@coreui/icons/svg/free.svg#cil-account-logout"></use>
-                            </svg> Logout
+                            </svg> {{ $t("logout") }}
                         </a>
                     </div>
                 </li>
@@ -59,10 +55,12 @@
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb my-0 ms-2">
                     <li class="breadcrumb-item">
-                        <!-- if breadcrumb is single--><a href="javascript:void(0);">Home</a>
+                        <a href="javascript:void(0);">Home</a>
                     </li>
-                    <li class="breadcrumb-item" v-for="(item, index) in breadcumpItems" :key="index">
-                        <a href="javascript:void(0);">{{ item.name }}</a>
+                    <li class="breadcrumb-item" :class="item.isActive ? 'active' : ''"
+                        v-for="(item, index) in breadcumpItems" :key="index">
+                        <span v-if="item.isActive">{{ item.name }}</span>
+                        <a href="javascript:void(0);" v-else>{{ item.name }}</a>
                     </li>
                 </ol>
             </nav>
@@ -76,13 +74,13 @@ import { defineComponent, PropType } from 'vue'
 import { Breadcump } from '../types/Breadcump';
 
 export default defineComponent({
-    name: "Top Menu",
     props: {
         breadcumpItems: {
             required: true,
             type: Array as PropType<Breadcump[]>
         }
-    }
+    },
+
 })
 </script>
 
