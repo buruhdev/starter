@@ -1,16 +1,16 @@
-import './admin.bootstrap';
+import './auth.bootstrap.js';
 import { createApp } from 'vue';
-import Admin from './Admin.vue';
+import Auth from './Auth.vue';
 import i18n from './i18n';
 import { createRouter, createWebHistory } from 'vue-router';
-import  adminRoutes from './admin.routes';
+import  authRoutes from './auth.routes';
 
 const router = createRouter({
     history: createWebHistory(),
-    routes: adminRoutes
+    routes: authRoutes
 });
 
-createApp(Admin)
+createApp(Auth)
     .use(i18n)
     .use(router)
     .mount('#app');
