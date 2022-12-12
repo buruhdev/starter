@@ -6,5 +6,17 @@
     "users": "Pengguna",
     "profile": "Profil",
     "home": "Rumah",
-    "admin": "Admin"
+    "admin": "Admin",
+    "updateprofiledata": "Ubah Data Profil",
+    "name": "Nama",
+    "email": "Email",
+    "save": "Simpan",
+    "update": "Ubah",
+    "datasaved": "Data disimpan",
+    "dataupdated": "Data diubah",
+    "datadeleted": "Data dihapus",
+    "failedupdatedata": "Gagal mengubah data",
+    "faileddeletedata": "Gagal menghapus data",
+    "failedsavedata": "Gagal mengubah data",
+    "failedfetchdata": "Gagal mengambil data"
 }

@@ -6,5 +6,17 @@
     "users": "Users",
     "profile": "Profile",
     "home": "Home",
-    "admin": "Admin"
+    "admin": "Admin",
+    "updateprofiledata": "Update Profile Data",
+    "name": "Name",
+    "email": "Email",
+    "save": "Save",
+    "update": "Update",
+    "datasaved": "Data saved",
+    "dataupdated": "Data updated",
+    "datadeleted": "Data deleted",
+    "failedupdatedata": "Failed to update data",
+    "faileddeletedata": "Failed to delete data",
+    "failedsavedata": "Failed to save data",
+    "failedfetchdata": "Failed to fetching data"
 }
