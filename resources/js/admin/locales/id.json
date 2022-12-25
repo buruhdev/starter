@@ -18,5 +18,7 @@
     "failedupdatedata": "Gagal mengubah data",
     "faileddeletedata": "Gagal menghapus data",
     "failedsavedata": "Gagal mengubah data",
-    "failedfetchdata": "Gagal mengambil data"
+    "failedfetchdata": "Gagal mengambil data",
+    "updateprofileimage": "Ubah gambar profile",
+    "image": "Gambar"
 }

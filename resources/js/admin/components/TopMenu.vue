@@ -28,7 +28,7 @@
                     <a class="nav-link py-0" data-coreui-toggle="dropdown" href="#" role="button" aria-haspopup="true"
                         aria-expanded="false">
                         <div class="avatar avatar-md">
-                            <img class="avatar-img" src="https://via.placeholder.com/150" alt="user@email.com">
+                            <img class="avatar-img" :src="'/storage/' + store.$state.profile.image ?? 'https://via.placeholder.com/150'" alt="user@email.com">
                         </div>
                     </a>
                     <div class="dropdown-menu dropdown-menu-end pt-0">
@@ -73,12 +73,18 @@
 import axios from 'axios';
 import { defineComponent, PropType } from 'vue'
 import { Breadcump } from '../types/Breadcump';
+import useProfileStore from '../stores/profile.store';
 
 export default defineComponent({
     props: {
         breadcumpItems: {
             required: true,
             type: Array as PropType<Breadcump[]>
+        }
+    },
+    data() {
+        return {
+            store: useProfileStore()
         }
     },
     methods: {

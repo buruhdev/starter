@@ -18,5 +18,7 @@
     "failedupdatedata": "Failed to update data",
     "faileddeletedata": "Failed to delete data",
     "failedsavedata": "Failed to save data",
-    "failedfetchdata": "Failed to fetching data"
+    "failedfetchdata": "Failed to fetching data",
+    "updateprofileimage": "Update profile image",
+    "image": "Image"
 }
