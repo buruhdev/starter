@@ -20,3 +20,8 @@ Route::get('/', function () {
 Route::get('/admin/{vue_capture?}', function () {
     return view('layouts.admin');
 })->where('vue_capture', '[\/\w\.-]*');
+
+
+Route::get('/auth/{vue_capture?}', function () {
+    return view('layouts.auth');
+})->where('vue_capture', '[\/\w\.-]*');

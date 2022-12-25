@@ -10,7 +10,7 @@ export default defineConfig({
     },
     plugins: [
         laravel({
-            input: ["resources/css/app.css", "resources/js/admin/admin.ts"],
+            input: ["resources/js/admin/admin.ts", "resources/js/auth/auth.ts"],
             refresh: true,
         }),
         vue({
@@ -22,7 +22,10 @@ export default defineConfig({
             },
         }),
         vueI18n({
-            include: path.resolve(__dirname, "./resources/js/admin/locales/**"),
+            include: [
+                path.resolve(__dirname, "./resources/js/admin/locales/**"),
+                path.resolve(__dirname, "./resources/js/auth/locales/**"),
+            ],
         }),
     ],
 });
