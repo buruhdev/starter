@@ -24,6 +24,8 @@ Route::group(['prefix' => '/v1'], function () {
         Route::get('/logout', [\App\Http\Controllers\Api\V1\Auth\LogoutController::class, 'index'])->middleware('auth:api');
     });
 
+    Route::post('/profile/image/temp', [\App\Http\Controllers\Api\V1\ProfileController::class, 'storeTempImageProfile'])->middleware('auth:api');
+    Route::put('/profile/image/{profile}', [\App\Http\Controllers\Api\V1\ProfileController::class, 'updateImage'])->middleware('auth:api');
     Route::apiResource('profile', \App\Http\Controllers\Api\V1\ProfileController::class)
         ->except(['store', 'show', 'destroy'])
         ->middleware('auth:api');
