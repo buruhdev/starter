@@ -58,13 +58,12 @@ const useProfileStore = defineStore("profile", {
             formData.append('_method', 'PUT');
             formData.append('image', this.$state.rawImage);
             try {
-                const response = await axios.post(`/api/v1/profile/image/${this.profile.id}`, formData,{
+                await axios.post(`/api/v1/profile/image/${this.profile.id}`, formData,{
                     headers: {
                         "Authorization": `Bearer ${localStorage.getItem('access_token')}`,
                         "Accept": "application/json",
                         'content-type': 'multipart/form-data'
                     }});
-                console.log(response);
                 await this.fetchProfile();
             } catch (error) {
                 this.toaster.error(this.t("failedupdatedata"));

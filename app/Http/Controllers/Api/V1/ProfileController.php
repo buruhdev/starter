@@ -56,7 +56,9 @@ class ProfileController extends Controller
                 "message" => $e->getMessage()
             ], 404);
         } catch (UnableToDeleteFile $e) {
-
+            return response()->json([
+                "message" => $e->getMessage()
+            ], 500);
         }
 
     }

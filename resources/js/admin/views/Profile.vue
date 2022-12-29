@@ -74,7 +74,7 @@ export default defineComponent({
         return {
             store: useProfileStore(),
             rawImage: "" as string,
-            tempImage: '',
+            tempImage: '' as string,
             showImageEditor: false as boolean,
             toaster: createToaster({}) as Toaster,
             t: t
@@ -83,17 +83,18 @@ export default defineComponent({
     mounted() {
         this.$emit('pageChanged', "profile");
         this.store.fetchProfile();
+        this.tempImage = this.store.$state.profile.image!
     },
     methods: {
         updateProfileImage(): void {
-            const { canvas } = this.$refs.cropper.getResult();
+            const { canvas } = (this.$refs["cropper"] as any).getResult();
+            this.$refs["image"] = null;
             if (canvas) {
-                canvas.toBlob(async blob => {
+                canvas.toBlob(async (blob: string) => {
                     this.store.$state.rawImage = blob;
                     await this.store.updateProfileImage();
-                    this.showImageEditor = false;
-                    this.$refs.image = '';
-                })
+                });
+                this.showImageEditor = false;
             }
         },
         onImageChange(event: any): void {
