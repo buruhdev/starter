@@ -87,14 +87,18 @@ export default defineComponent({
     },
     methods: {
         updateProfileImage(): void {
-            const { canvas } = (this.$refs["cropper"] as any).getResult();
-            this.$refs["image"] = null;
-            if (canvas) {
-                canvas.toBlob(async (blob: string) => {
-                    this.store.$state.rawImage = blob;
-                    await this.store.updateProfileImage();
-                });
-                this.showImageEditor = false;
+            if (this.tempImage === "" || this.tempImage === undefined) {
+                this.toaster.error(this.t("failedfetchdata"));
+            } else {
+                const { canvas } = (this.$refs["cropper"] as any).getResult();
+                this.$refs["image"] = null;
+                if (canvas) {
+                    canvas.toBlob(async (blob: string) => {
+                        this.store.$state.rawImage = blob;
+                        await this.store.updateProfileImage();
+                    });
+                    this.showImageEditor = false;
+                }
             }
         },
         onImageChange(event: any): void {
